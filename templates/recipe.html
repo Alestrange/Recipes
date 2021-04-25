@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="/static/style.css">
+{% endblock %}
+
+{% block content %}
+    <h1 align="center">{{recipe.title}}</h1>
+    <div>
+        Ингридиенты:
+        {{recipe.ingridients}}
+    </div>
+    <div>
+        Инструкция:
+        {{recipe.text}}
+    </div>
+    <a class="btn btn-primary " href="/">На главную</a>
+        <div>{{ message }}</div>
+    </form>
+{% endblock %}

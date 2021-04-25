@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>
+        <h1 align="center">{{user.name}}</h1>
+        <div>
+            О себе:
+            {{user.about}}
+        </div>
+        <a class="btn btn-primary " href="/logout">Выйти</a>
+    </p>
+    <h2 align="center">Рецепты</h2>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        {% for item in recipes%}
+        <div align ="center" class="col-md6 border rounded">
+            <h2>{{item.title}}</h2>
+            <div>
+                Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
+            </div>
+            <a href="/recipe/<{{item.id}}>">Перейти к рецепту</a>
+        </div>
+{% endfor %}
+        <main role="main" class="container">
+            {% block button %}{% endblock %}
+        </main>
+        <a class="btn btn-primary " href="/">На главную</a>
+        <div>{{ message }}</div>
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<a class="btn btn-primary " href="/accaunt">Перейти в аккаунт</a>
+{% endif %}
+{% for item in recipes%}
+<div align="center" class="col-md6 border rounded">
+    <h2>{{item.title}}</h2>
+    <div>
+        <a href="/other_accaunts/<{{item.user.id}}>">Автор - {{item.user.name}}</a>, Дата написания - {{item.created_date}}
+    </div>
+    <a href="/recipe/<{{item.id}}>">Перейти к рецепту</a>
+</div>
+{% endfor %}
+{% endblock %}
