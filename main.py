@@ -16,7 +16,7 @@ login_manager.init_app(app)
 
 def main():
     db_session.global_init("db/blogs.db")
-    app.run()
+    app.run(port=8080, host='127.0.0.1')
 
 
 @app.route('/')
